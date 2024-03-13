@@ -25,6 +25,7 @@
                 <label for="">ใส่จำนวนผู้เข้ามารับคัดเลือก :<span id="num"
                         style="margin-left: 20px; display:none; "></span></label>
                 <input type="number" style="height:23px;" id="numMember" autocomplete="off" placeholder="*4" />
+                <button id="submit-number">enter</button>
             </div>
 
         </form>
@@ -124,6 +125,7 @@
             let message = document.getElementById('message')
             let input = document.getElementById("numMember")
             let currntNum = document.getElementById("currentNum")
+            let submitNumber = document.getElementById('submit-number')
             for (let i = 0; i < countLi; i++) {
                 document.getElementById("member").remove()
             }
@@ -131,11 +133,13 @@
             count = 1
             inputSection.style.display = "flex";
             resultSection.style.display = "none";
+            submitNumber.style.display = "inline"
             numInputMember.textContent = ""
             numInputMember.style.display = "none"
             input.style.display = ""
             currntNum.textContent = count
             message.textContent = ""
+            
 
         }
         //ส่งค่าจำนวนคนที่เข้าคัดเลือก
@@ -143,6 +147,7 @@
             var input = document.getElementById("numMember")
             let numInputMember = document.getElementById('num')
             let message = document.getElementById('message')
+            let submitNumber = document.getElementById('submit-number')
             if (input.value <= 0){
                 message.textContent = "Please insert number more than zero."
                 message.style.color = "red"
@@ -157,6 +162,7 @@
                 numInputMember.textContent = a + "   คน"
                 input.style.display = "none";
                 numInputMember.style.display = 'inline'
+                submitNumber.style.display = 'none'
             }
            
         }

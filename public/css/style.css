@@ -27,7 +27,7 @@ form {
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    width: 40%;
+    width: 35%;
     margin-left: 2%;
     margin-top: 20px;
 }
@@ -63,6 +63,12 @@ button:hover {
     align-items: center;
     flex-direction: column;
     width: 100%;
+}
+#submit-number{
+    width: 10%;
+    height: 27px;
+    border-radius: 5px;
+    padding: 2px;
 }
 #result{
     display: flex;

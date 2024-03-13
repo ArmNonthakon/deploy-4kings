@@ -3,7 +3,7 @@
 เป็นเว็บไซต์คัดสรรสถาบัน 4kings โดยคำนวณการคัดสรรสถาบันด้วย NLP(Natural Language Processing) มาช่วยในการคำนวณ และการส่งข้อมูลก็จะใช้ websocket ทำให้สามารถส่งและรับข้อมูลได้แบบ real time 
 
 # วิธีติดตั้ง
-clone ไฟล์จาก git ลงเครื่อง
+เข้าโฟลเดอร์ที่จะเก็บไฟล์ และ clone ไฟล์จาก git ลงเครื่อง
 ```bash
 git clone https://github.com/ArmNonthakon/4kings.git
 ```

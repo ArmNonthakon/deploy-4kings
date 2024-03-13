@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4kings</title>
+    <link rel="icon" href="http://127.0.0.1:8000/public/pic/4kings.png">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/public/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <img src="http://127.0.0.1:8000/public/pic/4kings.png" style="width: 195px;" alt="">
+    <p id="head">คัดสรรสมาชิก 4kINGS</p>
+
+    <!-- ส่วนของการรับค่า -->
+    <div id="section-input">
+        <form action="" onsubmit="sendNumber(event)">
+            <div style="width: 100%">
+                <label for="">ใส่จำนวนผู้เข้ามารับคัดเลือก :<span id="num"
+                        style="margin-left: 20px; display:none; "></span></label>
+                <input type="number" style="height:23px;" id="numMember" autocomplete="off" placeholder="*4" />
+            </div>
+
+        </form>
+
+        <form action="" onsubmit="sendMessage(event)">
+            <label style="margin-top: 10px; margin-bottom: 10px;" for="">ใส่ชื่อผู้คัดเลือกคนที่ <span
+                    id="currentNum">1</span> : </label>
+            <input type="text" id="messageText" style=" width: 90%; margin-top:5px;" autocomplete="off"
+                placeholder="*บ่าง (รองรับเฉพาะภาษาไทย)" />
+            <div style="margin-top: 12px;" id="sub">
+                <button>Send</button>
+            </div>
+        </form>
+        <p id="message"></p>
+    </div>
+    <div>
+    </div>
+    <!-- ส่วนของผลลัพท์ -->
+    <div id="section-result">
+        <div id="result">
+            <ul id="กนก">
+                <h2 class="sticky">กนกอาชีวะ</h2>
+            </ul>
+            <ul id="อินทร">
+                <h2 class="sticky">อินทร</h2>
+
+            </ul>
+            <ul id="ประชาชล">
+                <h2 class="sticky">ประชาชื่น</h2>
+            </ul>
+            <ul id="บุรณพนธ์">
+                <h2 class="sticky">บูรณพล</h2>
+            </ul>
+        </div>
+        <button onclick="tranResultToInput()" style="width: 15%; margin-top: 10px;">Try again</button>
+
+    </div>
+
+
+
+
+
+
+    <script>
+        var ws = new WebSocket("ws://127.0.0.1:8000/ws");
+        var count = 1
+        let countLi = 0
+        let checkInputNum = true
+        ws.onmessage = function (event) {//รับค่าจาก server ผ่าน websocket
+            let messages = document.getElementById('message')
+            let currntNum = document.getElementById("currentNum")
+
+            if (event.data == "Please input Thai name.") {//ตรวจสอบวาค่าที่ใส่ต้องเป็นภาษาไทย และแสดงผลเตือน
+                messages.textContent = event.data
+                messages.style.color = 'red'
+            }
+
+            else if (event.data == "Successful enter name!!!") {//แสดงผลว่าใส่ข้อมูลเรียบร้อย 
+                messages.textContent = event.data
+                messages.style.color = 'green'
+                count += 1
+                currntNum.textContent = count
+            }
+            else {
+                count -= 1
+                currntNum.textContent = count
+                tranInputToResult(event.data)
+
+
+            }
+
+        };
+        function tranInputToResult(result) {//แสดงหน้าผลลัพท์ของการจัดสรร 4king
+            let nameSchool = ["กนก", "อินทร", "ประชาชล", "บุรณพนธ์"]
+            let inputSection = document.getElementById("section-input")
+            let resultSection = document.getElementById("section-result")
+            const obj = JSON.parse(result);
+            inputSection.style.display = "none";
+            resultSection.style.display = "flex";
+
+            for (let i = 0; i < nameSchool.length; i++) {
+                for (let j = 0; j < obj[`${nameSchool[i]}`].length; j++) {
+                    let position = document.getElementById(`${nameSchool[i]}`)
+                    let newReult = document.createElement('li')
+                    newReult.setAttribute("id", "member")
+                    let content = document.createTextNode(obj[`${nameSchool[i]}`][j])
+                    newReult.append(content)
+                    position.append(newReult)
+                    countLi += 1
+                }
+            }
+        }
+        function tranResultToInput() {//ปรับต่างๆเป็นค่าเริ่มต้น กลับไปแสดงหน้าเว็บปกติรอรับค่า
+            let inputSection = document.getElementById("section-input")
+            let resultSection = document.getElementById("section-result")
+            let numInputMember = document.getElementById('num')
+            let message = document.getElementById('message')
+            let input = document.getElementById("numMember")
+            let currntNum = document.getElementById("currentNum")
+            for (let i = 0; i < countLi; i++) {
+                document.getElementById("member").remove()
+            }
+            countLi = 0
+            count = 1
+            inputSection.style.display = "flex";
+            resultSection.style.display = "none";
+            numInputMember.textContent = ""
+            numInputMember.style.display = "none"
+            input.style.display = ""
+            currntNum.textContent = count
+            message.textContent = ""
+
+        }
+        //ส่งค่าจำนวนคนที่เข้าคัดเลือก
+        function sendNumber(event) {
+            var input = document.getElementById("numMember")
+            let numInputMember = document.getElementById('num')
+            let message = document.getElementById('message')
+            if (input.value <= 0){
+                message.textContent = "Please insert number more than zero."
+                message.style.color = "red"
+                input.value = ''
+                event.preventDefault()
+            }
+            else{
+                ws.send(input.value)
+                a = input.value
+                input.value = ''
+                event.preventDefault()
+                numInputMember.textContent = a + "   คน"
+                input.style.display = "none";
+                numInputMember.style.display = 'inline'
+            }
+           
+        }
+        //ส่งค่าชื่อของคนที่จะจัดสรรตามลำดับ
+        function sendMessage(event) {
+            var input = document.getElementById("messageText")
+            let message = document.getElementById('message')
+            if (document.getElementById('num').innerText == "") {//ตรวจสอบว่ามีการใส่จำนวนผู้เข้าคัดเลือกมาหรือยัง
+                message.textContent = "Please insert number first."
+                message.style.color = "red"
+                input.value = ''
+                event.preventDefault()
+            }
+            else if (input.value == ""){//ตรวจว่าชื่อที่รับเข้ามาห้ามเป็นค่าว่าง
+                message.textContent = "Please insert some text."
+                message.style.color = "red"
+                input.value = ''
+                event.preventDefault()
+            }
+            else {//ส่งค่าไปที่ Server ผ่าน websocket
+                ws.send(input.value)
+                input.value = ''
+                event.preventDefault()
+            }
+
+        }
+    </script>
+</body>
+
+</html>

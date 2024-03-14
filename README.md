@@ -7,12 +7,9 @@
 ตั้ดตั้ง Python ลงเครื่อง
 [Python](https://www.python.org/downloads/)
 
-เปิด command prompt เข้าโฟลเดอร์ที่ต้องการจะเก็บไฟล์ไว้ ผ่านคำสั่ง cd
+เปิด command prompt เลือก file path ที่ต้องการจะเก็บไฟล์ไว้ และเข้าถึงไฟล์ผ่านคำสั่ง cd
 ```bash
-cd [Your path folder]
-
-#Example
-cd C:\My work
+cd file path
 ```
 clone ไฟล์จาก git ลงเครื่อง
 ```bash

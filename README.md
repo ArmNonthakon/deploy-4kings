@@ -27,7 +27,7 @@ run คำสั่ง
 ```bash
 python -m uvicorn main:app --reload
 ```
-
+run web on port http://127.0.0.1:8000/
 ## เครดิต
 
  - [PyThaiNLP](https://pythainlp.github.io/)

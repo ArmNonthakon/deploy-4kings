@@ -111,7 +111,12 @@ async def websocket_endpoint(websocket: WebSocket):
         while(True):                         #รับชื่อผู้คัดสรรตามจำนวนจาก client ผ่าน websocket
             if count == num:break
             name = await websocket.receive_text()
-            if isThaiText(name):             #ตรวจสอบชื่อภาษาไทย
+            longName = name.split()
+            resultName = ""
+            if len(longName) > 1:
+                for i in longName:
+                    resultName += i
+            if isThaiText(resultName):             #ตรวจสอบชื่อภาษาไทย
                 allName.append(name)
                 count+=1
                 await websocket.send_text(f"Successful enter name!!!")

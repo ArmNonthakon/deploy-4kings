@@ -70,6 +70,10 @@ button:hover {
     border-radius: 5px;
     padding: 2px;
 }
+#submit-number:hover{
+    background-color: rgb(67, 66, 66);
+    color: white;
+}
 #result{
     display: flex;
     justify-content: space-around;

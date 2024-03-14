@@ -170,8 +170,11 @@
         function sendMessage(event) {
             var input = document.getElementById("messageText")
             let message = document.getElementById('message')
+            let submitNumber = document.getElementById('submit-number') 
             if (document.getElementById('num').innerText == "") {//ตรวจสอบว่ามีการใส่จำนวนผู้เข้าคัดเลือกมาหรือยัง
                 message.textContent = "Please insert number and press enter button first."
+                submitNumber.style.backgroundColor = "rgba(255, 0, 0, 0.76)";
+                submitNumber.style.color = "white";
                 message.style.color = "red"
                 input.value = ''
                 event.preventDefault()

@@ -9,7 +9,7 @@
 
 เปิด command prompt เลือก file path ที่ต้องการจะเก็บไฟล์ไว้ และเข้าถึงไฟล์ผ่านคำสั่ง cd
 ```bash
-cd file path
+cd filepath
 ```
 clone ไฟล์จาก git ลงเครื่อง
 ```bash

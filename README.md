@@ -21,7 +21,7 @@ cd 4kings
 ```
 ติดตั้ง dependency ต่างๆ
 ```bash
-pip install fastapi uvicorn numpy pythainlp
+pip install fastapi uvicorn[standard] numpy pythainlp websocket 
 ```
 run คำสั่ง
 ```bash

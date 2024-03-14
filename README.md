@@ -3,7 +3,15 @@
 เป็นเว็บไซต์คัดสรรสถาบัน 4kings โดยในหลังบ้านจะเลือกใช้ภาษา Python เป็นหลักในการเขียนฝั่ง Server และในการคำนวณการคัดสรรสถาบันจะใช้ Machine learning เข้ามาช่วยโดยจะใช้ NLP(Natural Language Processing) มาคำนวณ ซึ่งจะใช้เป็น library ของคนไทย คือ PyThaiNLP เพื่อรับข้อมูลเป็นภาษาไทยและคำนวณผลลัพท์ออกมา และการรับส่งข้อมูลก็จะใช้ Websocket ทำให้สามารถส่งและรับข้อมูลได้แบบ Real time ภายในเว็บก็จะมีการตรวจจับ error ต่างๆก่อนส่งข้อมูล หน้าเว็บไซต์ก็รองรับการแสดงผลแบบ Responsive
 
 # วิธีติดตั้ง
-เข้าโฟลเดอร์ที่จะเก็บไฟล์ และ clone ไฟล์จาก git ลงเครื่อง
+เปิด command prompt เข้าโฟลเดอร์ที่ต้องการจะเก็บไฟล์ไว้ ผ่านคำสั่ง cd
+```bash
+cd [Your path folder]
+```
+Example
+```bash
+cd C:\My work
+```
+clone ไฟล์จาก git ลงเครื่อง
 ```bash
 git clone https://github.com/ArmNonthakon/4kings.git
 ```

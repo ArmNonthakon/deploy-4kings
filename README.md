@@ -13,7 +13,7 @@ cd 4kings
 ```
 ติดตั้ง dependency ต่างๆ
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 run คำสั่ง
 ```bash

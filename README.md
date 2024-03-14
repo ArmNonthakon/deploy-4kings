@@ -28,8 +28,6 @@ pip install -r requirements.txt
 ```
 run คำสั่ง
 ```bash
-uvicorn main:app --reload
-#or
 python -m uvicorn main:app --reload
 ```
 

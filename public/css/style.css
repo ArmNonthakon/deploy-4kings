@@ -133,7 +133,7 @@ h2.sticky {
         
     }
     form {
-        width: 90%;
+        width: 85%;
     }
     #section-result{
         flex-direction: column;
@@ -162,5 +162,17 @@ h2.sticky {
     }
     #result ul:last-child{
         border-bottom: none;
+    }
+  }
+  @media only screen and (min-width: 800px) and (max-width: 1200px){
+    #head {
+        font-size: 25px;
+    }
+    label {
+        font-size: 22px;
+        
+    }
+    form {
+        width: 50%;
     }
   }

@@ -21,7 +21,7 @@ cd 4kings
 ```
 ติดตั้ง dependency ต่างๆ
 ```bash
-pip install -r requirements.txt
+pip install fastapi uvicorn numpy pythainlp
 ```
 run คำสั่ง
 ```bash

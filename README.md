@@ -6,9 +6,8 @@
 เปิด command prompt เข้าโฟลเดอร์ที่ต้องการจะเก็บไฟล์ไว้ ผ่านคำสั่ง cd
 ```bash
 cd [Your path folder]
-```
-Example
-```bash
+
+#Example
 cd C:\My work
 ```
 clone ไฟล์จาก git ลงเครื่อง

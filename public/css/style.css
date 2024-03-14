@@ -17,7 +17,7 @@ label {
 }
 input {
     height: 30px;
-    width: 60px;
+    width: 35px;
     text-align: center;
     border-radius: 10px;
     font-size: 14px;
@@ -27,7 +27,7 @@ form {
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    width: 35%;
+    width: 37%;
     margin-left: 2%;
     margin-top: 20px;
 }
@@ -129,7 +129,7 @@ h2.sticky {
         
     }
     form {
-        width: 80%;
+        width: 90%;
     }
     #section-result{
         flex-direction: column;

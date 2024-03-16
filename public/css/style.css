@@ -3,13 +3,17 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url('/public/pic/backgroud_.png');
+    background-image: url('http://127.0.0.1:8000/public/pic/backgroud_.png');
     font-family: "Mali", cursive;
     font-weight: 600;
     font-style: italic;
 }
+img{
+    animation: mymove 1s;
+}
 #head {
     font-size: 29px;
+    animation: mymove 1s;
 }
 label {
     font-size: 24px;
@@ -30,7 +34,7 @@ form {
     width: 37%;
     margin-left: 2%;
     margin-top: 20px;
-    animation: mymove 3s;
+    animation: mymove 1s;
 }
 #sub {
     width: 100%;
@@ -64,6 +68,7 @@ button:hover {
     align-items: center;
     flex-direction: column;
     width: 100%;
+    animation: mymove 1s;
 }
 #submit-number{
     width: 10%;

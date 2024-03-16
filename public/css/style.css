@@ -3,7 +3,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url('http://127.0.0.1:8000/public/pic/backgroud_.png');
+    background-image: url('/public/pic/backgroud_.png');
     font-family: "Mali", cursive;
     font-weight: 600;
     font-style: italic;

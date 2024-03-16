@@ -30,6 +30,7 @@ form {
     width: 37%;
     margin-left: 2%;
     margin-top: 20px;
+    animation: mymove 3s;
 }
 #sub {
     width: 100%;
@@ -124,6 +125,10 @@ h2.sticky {
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+@keyframes mymove {
+    from {opacity: 0.2;}
+    to {opacity: 1;}
+}
 @media only screen and (max-width: 800px) {
     #head {
         font-size: 25px;
